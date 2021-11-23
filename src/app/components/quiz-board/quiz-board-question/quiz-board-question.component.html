@@ -1,3 +1,4 @@
-<div class="btn-toolbar btn btn-outline-success btn-dark m-2 p-2 text-center justify-content-center">
-  {{this.question?.points}}
+<div class="btn-toolbar btn btn-dark border-3 m-2 p-2 text-center justify-content-center"
+    [ngClass]=" this.question.answered ? 'btn-outline-dark answered-question' : 'btn-outline-light ' ">
+  {{this.question.points}}
 </div>

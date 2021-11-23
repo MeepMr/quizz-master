@@ -1,8 +1,8 @@
-<ng-container class="card col">
+<div class="card column-card text-center text-light">
   <div class="card-header">
-    Column identifier: {{this.column?.id}}
+    {{this.column.columnName}}
   </div>
-  <div *ngFor="let question of this.column?.questions">
-    <app-quiz-board-question [question]="question"></app-quiz-board-question>
+  <div *ngFor="let question of this.column.questions" class="">
+    <app-quiz-board-question [question]="question" class=""></app-quiz-board-question>
   </div>
-</ng-container>
+</div>
