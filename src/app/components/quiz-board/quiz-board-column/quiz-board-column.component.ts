@@ -10,7 +10,7 @@ export class QuizBoardColumnComponent implements OnInit {
 
   constructor() { }
 
-  @Input() column?: QuizBoardColumn;
+  @Input() column: QuizBoardColumn = new QuizBoardColumn(-1, '');
 
   ngOnInit(): void {
   }

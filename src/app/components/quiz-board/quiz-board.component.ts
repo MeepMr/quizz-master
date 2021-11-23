@@ -12,7 +12,7 @@ export class QuizBoardComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private quizService: QuizService) { }
 
-  activeQuiz?: Quiz;
+  activeQuiz: Quiz = new Quiz(-1);
 
   ngOnInit(): void {
     this.getCurrentQuiz();
