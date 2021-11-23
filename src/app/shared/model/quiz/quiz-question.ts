@@ -3,7 +3,8 @@ export class QuizQuestion {
   id: number;
   questionText: String;
   type: QuestionType;
-  points: number
+  points: number;
+  answered: boolean;
 
   constructor(id: number, questionText: String, type: QuestionType, points: number) {
 
@@ -11,6 +12,7 @@ export class QuizQuestion {
     this.questionText = questionText;
     this.type = type;
     this.points = points;
+    this.answered = false;
   }
 }
 

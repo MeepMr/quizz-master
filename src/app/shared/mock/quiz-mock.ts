@@ -18,12 +18,12 @@ export class QUIZ_MOCK {
   constructor() {
 
     this.quiz1 = new Quiz(this.quiz_id_counter++);
-    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
-    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
-    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
-    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
-    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
-    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++, 'Test'));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++, 'Col'));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++, 'Heart'));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++, 'Broken'));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++, 'Single'));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++, 'End'));
 
     this.quiz2 = new Quiz(this.quiz_id_counter++);
     this.addMockColumns(this.quiz2, 5)
@@ -44,7 +44,7 @@ export class QUIZ_MOCK {
   private addMockColumns(quiz: Quiz, amount: number): void {
 
     for(let i = 0; i < amount; i++) {
-      let tempColumn = new QuizBoardColumn(this.column_id_counter++);
+      let tempColumn = new QuizBoardColumn(this.column_id_counter++, `Column ${i}`);
 
       for (let j = 0; j < amount; j++) {
 
