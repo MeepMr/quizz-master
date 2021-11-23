@@ -1,1 +1,5 @@
-<p class="">quizz-overview works!</p>
+<div class="container">
+  <ng-container *ngFor="let quiz of quizList">
+    <app-quiz-card [quiz]="quiz"></app-quiz-card>
+  </ng-container>
+</div>
