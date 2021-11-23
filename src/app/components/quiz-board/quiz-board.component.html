@@ -1,3 +1,5 @@
-<div class="container bg-light">
-  <p>Active Quiz: {{activeQuiz?.id}} with {{activeQuiz?.columnCount}} Columns.</p>
+<div class="container-fluid row-cols-auto row justify-content-evenly">
+  <ng-container *ngFor="let column of activeQuiz?.columns">
+    <app-quiz-board-column [column]="column"></app-quiz-board-column>
+  </ng-container>
 </div>

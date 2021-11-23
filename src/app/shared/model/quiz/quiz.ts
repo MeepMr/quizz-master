@@ -1,9 +1,9 @@
-import {QuizQuestionColumn} from "./quiz-question-column";
+import {QuizBoardColumn} from "./quiz-board-column";
 
 export class Quiz {
   id: number;
   columnCount: number;
-  columns: QuizQuestionColumn []
+  columns: QuizBoardColumn []
 
   constructor(id: number) {
 
@@ -12,7 +12,7 @@ export class Quiz {
     this.columns = [];
   }
 
-  public addColumn(column: QuizQuestionColumn): void {
+  public addColumn(column: QuizBoardColumn): void {
 
     this.columnCount++;
     this.columns.push(column);

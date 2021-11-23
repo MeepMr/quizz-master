@@ -1,10 +1,12 @@
 import {Quiz} from "../model/quiz/quiz";
-import {QuizQuestionColumn} from "../model/quiz/quiz-question-column";
+import {QuizBoardColumn} from "../model/quiz/quiz-board-column";
+import {QuestionType, QuizQuestion} from "../model/quiz/quiz-question";
 
 export class QUIZ_MOCK {
 
   quiz_id_counter: number = 0;
   column_id_counter: number = 0;
+  question_id_counter: number = 0;
 
   quiz1: Quiz;
   quiz2: Quiz;
@@ -16,12 +18,12 @@ export class QUIZ_MOCK {
   constructor() {
 
     this.quiz1 = new Quiz(this.quiz_id_counter++);
-    this.quiz1.addColumn(new QuizQuestionColumn(this.column_id_counter++, 4));
-    this.quiz1.addColumn(new QuizQuestionColumn(this.column_id_counter++, 4));
-    this.quiz1.addColumn(new QuizQuestionColumn(this.column_id_counter++, 4));
-    this.quiz1.addColumn(new QuizQuestionColumn(this.column_id_counter++, 4));
-    this.quiz1.addColumn(new QuizQuestionColumn(this.column_id_counter++, 4));
-    this.quiz1.addColumn(new QuizQuestionColumn(this.column_id_counter++, 4));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
+    this.quiz1.addColumn(new QuizBoardColumn(this.column_id_counter++));
 
     this.quiz2 = new Quiz(this.quiz_id_counter++);
     this.addMockColumns(this.quiz2, 5)
@@ -41,8 +43,16 @@ export class QUIZ_MOCK {
 
   private addMockColumns(quiz: Quiz, amount: number): void {
 
-    for(let i = 0; i < amount; i++)
-      quiz.addColumn(new QuizQuestionColumn(this.column_id_counter++, 1));
+    for(let i = 0; i < amount; i++) {
+      let tempColumn = new QuizBoardColumn(this.column_id_counter++);
+
+      for (let j = 0; j < amount; j++) {
+
+        tempColumn.addQuestion(new QuizQuestion(this.question_id_counter++, `Question Number; ${this.question_id_counter}`, QuestionType.MULTIPLE_CHOICE, j*10))
+      }
+
+      quiz.addColumn(tempColumn);
+    }
   }
 
   getMockData(): Quiz[] {
