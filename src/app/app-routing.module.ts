@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {QuizOverviewComponent} from "./components/view/quiz-overview/quiz-overview.component";
-import {QuizViewComponent} from "./components/view/quiz-view/quiz-view.component";
+import {QuizBoardComponent} from "./components/quiz-board/quiz-board.component";
 
 const routes: Routes = [
-  {path: 'quiz/:quiz_id', component: QuizViewComponent},
+  {path: 'quiz/:quiz_id', component: QuizBoardComponent},
   {path: 'landingpage', component: QuizOverviewComponent},
   {path: '**', redirectTo: 'landingpage'},
 ];

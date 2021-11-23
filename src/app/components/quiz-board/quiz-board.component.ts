@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Quiz} from "../../../shared/model/quiz/quiz";
-import {QuizService} from "../../../services/quiz.service";
+import {Quiz} from "../../shared/model/quiz/quiz";
+import {QuizService} from "../../services/quiz.service";
 
 @Component({
-  selector: 'app-quiz-view',
-  templateUrl: './quiz-view.component.html',
-  styleUrls: ['./quiz-view.component.scss']
+  selector: 'app-quiz-board',
+  templateUrl: './quiz-board.component.html',
+  styleUrls: ['./quiz-board.component.scss']
 })
-export class QuizViewComponent implements OnInit {
+export class QuizBoardComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private quizService: QuizService) { }
 
