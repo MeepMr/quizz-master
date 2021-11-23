@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Quiz} from "../shared/model/quiz/quiz";
 import {Observable, of} from "rxjs";
+import {QUIZ_MOCK} from "../shared/mock/quiz-mock";
 
 @Injectable({
   providedIn: 'root'
@@ -9,13 +10,15 @@ export class QuizService {
 
   constructor() { }
 
+  quizMock = new QUIZ_MOCK();
+
   public getQuiz$(id: number): Observable<Quiz> {
 
-    return of(new Quiz(id, 1))
+    return of(this.quizMock.getMockData()[id]);
   }
 
   public getQuizList$(): Observable<Quiz[]> {
 
-    return of([new Quiz(0, 1), new Quiz(1, 2)])
+    return of(this.quizMock.getMockData())
   }
 }

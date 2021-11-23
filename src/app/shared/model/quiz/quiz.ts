@@ -5,10 +5,16 @@ export class Quiz {
   columnCount: number;
   columns: QuizQuestionColumn []
 
-  constructor(id: number, columnCount: number) {
+  constructor(id: number) {
 
     this.id = id;
-    this.columnCount = columnCount;
+    this.columnCount = 0;
     this.columns = [];
+  }
+
+  public addColumn(column: QuizQuestionColumn): void {
+
+    this.columnCount++;
+    this.columns.push(column);
   }
 }
