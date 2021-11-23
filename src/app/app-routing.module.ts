@@ -4,7 +4,7 @@ import {QuizOverviewComponent} from "./components/view/quiz-overview/quiz-overvi
 import {QuizViewComponent} from "./components/view/quiz-view/quiz-view.component";
 
 const routes: Routes = [
-  {path: 'quiz/:quiz-id', component: QuizViewComponent},
+  {path: 'quiz/:quiz_id', component: QuizViewComponent},
   {path: 'landingpage', component: QuizOverviewComponent},
   {path: '**', redirectTo: 'landingpage'},
 ];
