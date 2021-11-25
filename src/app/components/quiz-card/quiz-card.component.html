@@ -1,4 +1,4 @@
-<a class="card btn quiz-card" href="/quiz/{{this.quiz?.id}}">
+<a class="card btn quiz-card" [routerLink]="['/quiz/'+this.quiz?.id]">
   <div class="card-header">
     <p>Id: {{this.quiz?.id}}</p>
   </div>
