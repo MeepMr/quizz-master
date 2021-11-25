@@ -1,0 +1,8 @@
+<div class="card column-card text-center text-light">
+  <div class="card-header">
+    {{this.column.columnName}}
+  </div>
+  <div *ngFor="let question of this.column.questions" class="">
+    <app-quiz-board-question [question]="question" class=""></app-quiz-board-question>
+  </div>
+</div>

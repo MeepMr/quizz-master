@@ -1,0 +1,5 @@
+<div class="container row row-cols-auto quiz-overview justify-content-center">
+  <ng-container *ngFor="let quiz of quizList">
+    <app-quiz-card [quiz]="quiz" class="col"></app-quiz-card>
+  </ng-container>
+</div>

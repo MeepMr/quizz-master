@@ -1,0 +1,5 @@
+<a class="btn-toolbar btn btn-dark border-2 m-2 p-2 text-center justify-content-center btn-outline-light"
+    [ngClass]=" this.question.answered ? 'disabled answered-question' : '' "
+    [routerLink]="['/question/'+this.question.id]">
+  {{this.question.points}}
+</a>
