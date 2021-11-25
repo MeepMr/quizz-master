@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Quiz} from "../../../shared/model/quiz/quiz";
-import {QuizService} from "../../../services/quiz.service";
+import {Quiz} from '../../../shared/model/quiz/quiz';
+import {QuizService} from '../../../services/quiz.service';
 
 @Component({
   selector: 'app-quiz-overview',
@@ -9,9 +9,9 @@ import {QuizService} from "../../../services/quiz.service";
 })
 export class QuizOverviewComponent implements OnInit {
 
-  constructor(private quizService: QuizService) { }
-
   quizList: Quiz[] = [];
+
+  constructor(private quizService: QuizService) { }
 
   ngOnInit(): void {
     this.getQuizList();

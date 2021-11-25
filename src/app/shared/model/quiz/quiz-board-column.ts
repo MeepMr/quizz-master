@@ -1,4 +1,4 @@
-import {QuizQuestion} from "./quiz-question";
+import {QuizQuestion} from './quiz-question';
 
 export class QuizBoardColumn {
 
@@ -14,7 +14,7 @@ export class QuizBoardColumn {
     this.columnName = columnName;
   }
 
-  public addQuestion(question: QuizQuestion): void {
+  addQuestion(question: QuizQuestion): void {
 
     this.rowCount++;
     this.questions.push(question);

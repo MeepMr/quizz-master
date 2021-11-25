@@ -1,4 +1,4 @@
-import {QuizBoardColumn} from "./quiz-board-column";
+import {QuizBoardColumn} from './quiz-board-column';
 
 export class Quiz {
   id: number;
@@ -12,7 +12,7 @@ export class Quiz {
     this.columns = [];
   }
 
-  public addColumn(column: QuizBoardColumn): void {
+  addColumn(column: QuizBoardColumn): void {
 
     this.columnCount++;
     this.columns.push(column);

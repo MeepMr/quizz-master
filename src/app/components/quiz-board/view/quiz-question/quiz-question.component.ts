@@ -7,9 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizQuestionComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
+    const uselessBoolean: boolean = true;
   }
-
 }

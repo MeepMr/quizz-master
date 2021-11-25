@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Quiz} from "../../shared/model/quiz/quiz";
+import {Quiz} from '../../shared/model/quiz/quiz';
 
 @Component({
   selector: 'app-quiz-card',
@@ -9,8 +9,8 @@ import {Quiz} from "../../shared/model/quiz/quiz";
 export class QuizCardComponent implements OnInit {
 
   @Input() quiz?: Quiz;
-  constructor() { }
 
-  ngOnInit(): void { }
-
+  ngOnInit(): void {
+    const uselessBoolean: boolean = true;
+  }
 }

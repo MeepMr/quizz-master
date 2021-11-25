@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Quiz} from "../../shared/model/quiz/quiz";
-import {QuizService} from "../../services/quiz.service";
+import {ActivatedRoute} from '@angular/router';
+import {Quiz} from '../../shared/model/quiz/quiz';
+import {QuizService} from '../../services/quiz.service';
 
 @Component({
   selector: 'app-quiz-board',
@@ -10,9 +10,9 @@ import {QuizService} from "../../services/quiz.service";
 })
 export class QuizBoardComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private quizService: QuizService) { }
-
   activeQuiz: Quiz = new Quiz(-1);
+
+  constructor(private activatedRoute: ActivatedRoute, private quizService: QuizService) { }
 
   ngOnInit(): void {
     this.getCurrentQuiz();
@@ -25,6 +25,7 @@ export class QuizBoardComponent implements OnInit {
 
   setCurrentQuiz(quizId: number): void {
 
-    this.quizService.getQuiz$(quizId).subscribe(quiz => this.activeQuiz = quiz).unsubscribe();
+    this.quizService.getQuiz$(quizId).subscribe(quiz => this.activeQuiz = quiz)
+.unsubscribe();
   }
 }
