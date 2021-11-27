@@ -27,7 +27,7 @@ jobs:
       id: buildx
       uses: docker/setup-buildx-action@master
     - name: Authenticate To ghcr
-      id: authenticate ghcr
+      id: authenticate-to-ghcr
       run: echo ${{ secrets.GHCR_PAT }} | docker login ghcr.io -u USERNAME --password-stdin
       
     - name: Build
