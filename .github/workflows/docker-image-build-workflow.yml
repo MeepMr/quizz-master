@@ -38,4 +38,4 @@ jobs:
         file: ./docker/qm-frontend/Dockerfile
         platforms: linux/amd64,linux/arm64,linux/ppc64le
         push: true
-        tags: latest
+        tags: ghcr.io/meepmr/quizz-master-frontend:latest
