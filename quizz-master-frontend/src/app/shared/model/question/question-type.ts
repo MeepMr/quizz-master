@@ -1,0 +1,5 @@
+export enum QuestionType {
+  INVALID,
+  ACTION_QUESTION,
+  MULTIPLE_CHOICE_QUESTION
+}

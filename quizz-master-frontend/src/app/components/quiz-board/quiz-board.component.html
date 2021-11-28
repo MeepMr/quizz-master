@@ -1,5 +1,5 @@
 <div class="container-fluid row-cols-auto row justify-content-center p-4 m-0">
-  <div *ngFor="let column of activeQuiz.columns" class="p-0">
+  <div *ngFor="let column of activeQuiz?.columns" class="p-0">
     <app-quiz-board-column [column]="column"></app-quiz-board-column>
   </div>
 </div>
