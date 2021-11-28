@@ -1,3 +1,14 @@
-<div class="container btn-outline-success">
-  <p>{{activeQuestion?.questionText}}</p>
+<div class="container-fluid">
+  <div class="container-fluid">
+    <a class="btn-toolbar btn-outline-light m-2 btn "
+      [routerLink]="['/quiz/0']">
+      <i class="bi bi-arrow-left"></i>
+    </a>
+  </div>
+  <div class="container-fluid bg-light">
+    <p>{{activeQuestion?.questionText}}</p>
+    <div>
+
+    </div>
+  </div>
 </div>
