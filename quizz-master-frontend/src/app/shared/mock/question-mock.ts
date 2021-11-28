@@ -81,9 +81,42 @@ export class QUESTION_MOCK {
       'Frage: wo finden wir sie?', 60, []);
     this.question5_4 = new MultipleChoiceQuestion(this.question_id_counter++, 'Wann feiern die russischen Christen Weihnachten?', 80, []);
     this.question5_5 = new MultipleChoiceQuestion(this.question_id_counter++, 'Was gibt’s bei Rahns Heiligabend zu essen?', 100, []);
+
+
   }
 
   getQuestionId(): number {
     return this.question_id_counter;
+  }
+
+  getMockData(): QuizQuestion[] {
+
+    return [
+      this.question1_1,
+      this.question1_2,
+      this.question1_3,
+      this.question1_4,
+      this.question1_5,
+      this.question2_1,
+      this.question2_2,
+      this.question2_3,
+      this.question2_4,
+      this.question2_5,
+      this.question3_1,
+      this.question3_2,
+      this.question3_3,
+      this.question3_4,
+      this.question3_5,
+      this.question4_1,
+      this.question4_2,
+      this.question4_3,
+      this.question4_4,
+      this.question4_5,
+      this.question5_1,
+      this.question5_2,
+      this.question5_3,
+      this.question5_4,
+      this.question5_5,
+    ]
   }
 }
