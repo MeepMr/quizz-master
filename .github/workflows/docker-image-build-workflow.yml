@@ -6,9 +6,19 @@ on:
   workflow_dispatch:
 
 jobs:
+  set-version:
+      runs-on: ubuntu-latest
 
+      steps:
+        - uses: actions/checkout@v2
+
+        - name: Read package version
+          run: PACKAGE_VERSION=$(head -n 1 version.txt) && echo $PACKAGE_VERSION && echo ::set-env name=PACKAGE_VERSION::$PACKAGE_VERSION
+          env:
+            ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+            
   build-frontend-container:
-
+    needs: set-version
     runs-on: ubuntu-latest
 
     steps:
@@ -38,4 +48,4 @@ jobs:
         file: ./docker/qm-frontend/Dockerfile
         platforms: linux/amd64,linux/arm64,linux/ppc64le
         push: true
-        tags: ghcr.io/meepmr/quizz-master-frontend:latest
+        tags: ghcr.io/meepmr/quizz-master-frontend:${{ env.PACKAGE_VERSION }}
