@@ -5,35 +5,37 @@ import {ActionQuestion} from "../model/question/action-question";
 export class QUESTION_MOCK {
 
   question_id_counter: number;
-  question1_1: QuizQuestion;
-  question1_2: QuizQuestion;
-  question1_3: QuizQuestion;
-  question1_4: QuizQuestion;
-  question1_5: QuizQuestion;
+  question1_1: MultipleChoiceQuestion;
+  question1_2: MultipleChoiceQuestion;
+  question1_3: MultipleChoiceQuestion;
+  question1_4: ActionQuestion;
+  question1_5: MultipleChoiceQuestion;
 
-  question2_1: QuizQuestion;
-  question2_2: QuizQuestion;
-  question2_3: QuizQuestion;
-  question2_4: QuizQuestion;
-  question2_5: QuizQuestion;
+  question2_1: MultipleChoiceQuestion;
+  question2_2: MultipleChoiceQuestion;
+  question2_3: MultipleChoiceQuestion;
+  question2_4: ActionQuestion;
+  question2_5: MultipleChoiceQuestion;
 
-  question3_1: QuizQuestion;
-  question3_2: QuizQuestion;
-  question3_3: QuizQuestion;
-  question3_4: QuizQuestion;
-  question3_5: QuizQuestion;
+  question3_1: MultipleChoiceQuestion;
+  question3_2: MultipleChoiceQuestion;
+  question3_3: MultipleChoiceQuestion;
+  question3_4: ActionQuestion;
+  question3_5: MultipleChoiceQuestion;
 
-  question4_1: QuizQuestion;
-  question4_2: QuizQuestion;
-  question4_3: QuizQuestion;
-  question4_4: QuizQuestion;
-  question4_5: QuizQuestion;
+  question4_1: MultipleChoiceQuestion;
+  question4_2: ActionQuestion;
+  question4_3: MultipleChoiceQuestion;
+  question4_4: MultipleChoiceQuestion;
+  question4_5: ActionQuestion;
 
-  question5_1: QuizQuestion;
-  question5_2: QuizQuestion;
-  question5_3: QuizQuestion;
-  question5_4: QuizQuestion;
-  question5_5: QuizQuestion;
+  question5_1: MultipleChoiceQuestion;
+  question5_2: MultipleChoiceQuestion;
+  question5_3: MultipleChoiceQuestion;
+  question5_4: MultipleChoiceQuestion;
+  question5_5: MultipleChoiceQuestion;
+
+  allQuestions: QuizQuestion[];
 
   constructor(questionId: number) {
     this.question_id_counter = questionId;
@@ -82,16 +84,7 @@ export class QUESTION_MOCK {
     this.question5_4 = new MultipleChoiceQuestion(this.question_id_counter++, 'Wann feiern die russischen Christen Weihnachten?', 80, []);
     this.question5_5 = new MultipleChoiceQuestion(this.question_id_counter++, 'Was gibt’s bei Rahns Heiligabend zu essen?', 100, []);
 
-
-  }
-
-  getQuestionId(): number {
-    return this.question_id_counter;
-  }
-
-  getMockData(): QuizQuestion[] {
-
-    return [
+    this.allQuestions = [
       this.question1_1,
       this.question1_2,
       this.question1_3,
@@ -118,5 +111,18 @@ export class QUESTION_MOCK {
       this.question5_4,
       this.question5_5,
     ]
+  }
+
+  getQuestionId(): number {
+    return this.question_id_counter;
+  }
+
+  getMockData(): QuizQuestion[] {
+
+    return this.allQuestions;
+  }
+
+  getMultipleChoiceQuestion(id: number): MultipleChoiceQuestion {
+    return (<MultipleChoiceQuestion>this.allQuestions[id]);
   }
 }

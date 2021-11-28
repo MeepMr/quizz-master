@@ -11,6 +11,8 @@ import { QuizBoardQuestionComponent } from './components/quiz-board/quiz-board-q
 import { QuizQuestionComponent } from './components/quiz-question/quiz-question.component';
 import { QuizDetailComponent } from './components/view/quiz-detail/quiz-detail.component';
 import { QuizQuestionDetailComponent } from './components/view/quiz-question-detail/quiz-question-detail.component';
+import { ShowMultipleChoiceQuestionComponent } from './components/quiz-question/show-multiple-choice-question/show-multiple-choice-question.component';
+import { ShowActionQuestionComponent } from './components/quiz-question/show-action-question/show-action-question.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { QuizQuestionDetailComponent } from './components/view/quiz-question-det
     QuizBoardQuestionComponent,
     QuizQuestionComponent,
     QuizDetailComponent,
-    QuizQuestionDetailComponent
+    QuizQuestionDetailComponent,
+    ShowMultipleChoiceQuestionComponent,
+    ShowActionQuestionComponent
   ],
   imports: [
     BrowserModule,

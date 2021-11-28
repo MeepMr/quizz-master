@@ -6,8 +6,11 @@
   </a>
   <div class="container bg-light card">
     <p class="card-header">{{activeQuestion?.questionText}}</p>
-    <div >
-
+    <div *ngIf="activeMultipleChoiceQuestion">
+      <app-show-multiple-choice-question [activeMultipleChoiceQuestion]="activeMultipleChoiceQuestion"></app-show-multiple-choice-question>
+    </div>
+    <div *ngIf="activeActionQuestion">
+      <app-show-action-question [activeActionQuestion]="activeActionQuestion"></app-show-action-question>
     </div>
   </div>
 </div>
