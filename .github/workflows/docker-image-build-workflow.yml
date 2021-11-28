@@ -46,8 +46,6 @@ jobs:
       run: echo ${{ secrets.GHCR_PAT }} | docker login ghcr.io -u meepmr --password-stdin
       
     - name: Build
-      env:
-        container-name: ghcr.io/meepmr/quizz-master-frontend
       uses: docker/build-push-action@v2
       with:
         builder: ${{ steps.buildx.outputs.name }}
@@ -56,5 +54,5 @@ jobs:
         platforms: linux/amd64,linux/arm64,linux/ppc64le
         push: true
         tags: |
-          ${{ env.container-name }}:${{ needs.set-version.outputs.version-number }}
-          ${{ env.conatainer-name }}:latest
+          ghcr.io/meepmr/quizz-master-frontend:${{ needs.set-version.outputs.version-number }}
+          ghcr.io/meepmr/quizz-master-frontend:latest
