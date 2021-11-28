@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {QuizOverviewComponent} from './components/view/quiz-overview/quiz-overview.component';
-import {QuizBoardComponent} from './components/quiz-board/quiz-board.component';
-import {QuizQuestionComponent} from './components/quiz-board/view/quiz-question/quiz-question.component';
+import {QuizDetailComponent} from "./components/view/quiz-detail/quiz-detail.component";
+import {QuizQuestionDetailComponent} from "./components/view/quiz-question-detail/quiz-question-detail.component";
 
 const routes: Routes = [
-  {path: 'quiz/:quiz_id', component: QuizBoardComponent},
-  {path: 'question/:question_id', component: QuizQuestionComponent},
+  {path: 'quiz/:quiz_id', component: QuizDetailComponent},
+  {path: 'question/:question_id', component: QuizQuestionDetailComponent},
   {path: 'landingpage', component: QuizOverviewComponent},
   {path: '**', redirectTo: 'landingpage'},
 ];

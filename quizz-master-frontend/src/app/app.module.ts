@@ -8,7 +8,9 @@ import { QuizCardComponent } from './components/quiz-card/quiz-card.component';
 import { QuizBoardComponent } from './components/quiz-board/quiz-board.component';
 import { QuizBoardColumnComponent } from './components/quiz-board/quiz-board-column/quiz-board-column.component';
 import { QuizBoardQuestionComponent } from './components/quiz-board/quiz-board-question/quiz-board-question.component';
-import { QuizQuestionComponent } from './components/quiz-board/view/quiz-question/quiz-question.component';
+import { QuizQuestionComponent } from './components/quiz-question/quiz-question.component';
+import { QuizDetailComponent } from './components/view/quiz-detail/quiz-detail.component';
+import { QuizQuestionDetailComponent } from './components/view/quiz-question-detail/quiz-question-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { QuizQuestionComponent } from './components/quiz-board/view/quiz-questio
     QuizBoardComponent,
     QuizBoardColumnComponent,
     QuizBoardQuestionComponent,
-    QuizQuestionComponent
+    QuizQuestionComponent,
+    QuizDetailComponent,
+    QuizQuestionDetailComponent
   ],
   imports: [
     BrowserModule,
