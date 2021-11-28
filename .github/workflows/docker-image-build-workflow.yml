@@ -8,12 +8,15 @@ on:
 jobs:
   set-version:
       runs-on: ubuntu-latest
-
+      
+      outputs:
+        version-number: ${{ steps.get-version-number.outputs.version }}
       steps:
         - uses: actions/checkout@v2
 
         - name: Read package version
-          run: PACKAGE_VERSION=$(head -n 1 version.txt) && echo $PACKAGE_VERSION && echo ::set-env name=PACKAGE_VERSION::$PACKAGE_VERSION
+          id: get-version-number
+          run: PACKAGE_VERSION=$(head -n 1 version.txt) && echo $PACKAGE_VERSION && echo ::set-output name=version::$PACKAGE_VERSION
           env:
             ACTIONS_ALLOW_UNSECURE_COMMANDS: true
             
@@ -23,6 +26,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: print version
+      run: echo ${{ needs.set-version.outputs.version-number }}
     - name: npm install
       run: npm install
       working-directory: ./quizz-master-frontend/
@@ -48,4 +53,4 @@ jobs:
         file: ./docker/qm-frontend/Dockerfile
         platforms: linux/amd64,linux/arm64,linux/ppc64le
         push: true
-        tags: ghcr.io/meepmr/quizz-master-frontend:${{ needs.set-version.env.PACKAGE_VERSION }}
+        tags: ghcr.io/meepmr/quizz-master-frontend:${{ needs.set-version.outputs.version-number }}
