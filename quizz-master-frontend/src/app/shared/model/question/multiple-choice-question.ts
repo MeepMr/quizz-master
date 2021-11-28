@@ -1,4 +1,5 @@
 import {QuizQuestion} from "./quiz-question";
+import {QuestionType} from "./question-type";
 
 export class MultipleChoiceQuestion extends QuizQuestion {
 
@@ -9,5 +10,6 @@ export class MultipleChoiceQuestion extends QuizQuestion {
     super(id, questionText, points);
     this.correctAnswer = answers[0];
     this.answers = answers.sort();
+    this.questionType = QuestionType.MULTIPLE_CHOICE_QUESTION;
   }
 }

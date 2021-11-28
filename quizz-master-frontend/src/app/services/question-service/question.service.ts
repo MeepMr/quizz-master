@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {QUESTION_MOCK} from "../../shared/mock/question-mock";
 import {Observable, of} from "rxjs";
-import {QuizQuestion} from "../../shared/model/quiz/quiz-question";
+import {QuizQuestion} from "../../shared/model/question/quiz-question";
 import {QuizService} from "../quiz-service/quiz.service";
 
 @Injectable({

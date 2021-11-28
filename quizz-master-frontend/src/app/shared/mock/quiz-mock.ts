@@ -1,6 +1,6 @@
 import {Quiz} from '../model/quiz/quiz';
 import {QuizBoardColumn} from '../model/quiz/quiz-board-column';
-import {QuizQuestion} from '../model/quiz/quiz-question';
+import {QuizQuestion} from '../model/question/quiz-question';
 import {QUESTION_MOCK} from "./question-mock";
 
 export class QUIZ_MOCK {

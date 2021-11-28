@@ -1,6 +1,6 @@
-import {QuizQuestion} from "../model/quiz/quiz-question";
-import {MultipleChoiceQuestion} from "../model/quiz/multiple-choice-question";
-import {ActionQuestion} from "../model/quiz/action-question";
+import {QuizQuestion} from "../model/question/quiz-question";
+import {MultipleChoiceQuestion} from "../model/question/multiple-choice-question";
+import {ActionQuestion} from "../model/question/action-question";
 
 export class QUESTION_MOCK {
 
