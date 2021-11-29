@@ -1,1 +1,18 @@
-<p>show-multiple-choice-question works!</p>
+<div class="card-body">
+  <div class="btn-group-vertical container-fluid">
+    <div *ngFor="let answer of activeMultipleChoiceQuestion?.answers" class="btn fs-4"
+       [id]="answer"
+       (click)="clickedAnswer(answer)"
+       [ngClass]="{
+         'btn-outline-secondary': !answered,
+         'disabled' : answered,
+         'btn-outline-danger': answered && answer !== activeMultipleChoiceQuestion?.correctAnswer && selectedAnswer !== answer,
+         'btn-outline-success': answered && answer === activeMultipleChoiceQuestion?.correctAnswer && selectedAnswer !== answer,
+         'btn-danger': answered && answer !== activeMultipleChoiceQuestion?.correctAnswer && selectedAnswer === answer,
+         'btn-success': answered && answer === activeMultipleChoiceQuestion?.correctAnswer && selectedAnswer === answer
+       }"
+    >
+      {{answer}}
+    </div>
+  </div>
+</div>
