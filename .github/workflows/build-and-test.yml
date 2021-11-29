@@ -1,0 +1,56 @@
+name: Build and Test Project
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ master, dev ]
+
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
+    name: Build Frontend
+    steps:
+      - uses: actions/checkout@v2
+      - name: Npm Setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Run npm install
+        run: npm install
+        working-directory: ./quizz-master-frontend
+      - name: Build Frontend
+        run: npm run build
+        working-directory: ./quizz-master-frontend
+        
+  lint-frontend:
+    runs-on: ubuntu-latest
+    name: Lint Frontend
+    steps:
+      - uses: actions/checkout@v2
+      - name: Npm Setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Run npm install
+        run: npm install
+        working-directory: ./quizz-master-frontend
+      - name: Lint Frontend
+        run: npm run lint
+        working-directory: ./quizz-master-frontend
+
+  test-frontend:
+    runs-on: ubuntu-latest
+    name: Test Frontend
+    steps:
+      - uses: actions/checkout@v2
+      - name: Npm Setup
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Run npm install
+        run: npm install
+        working-directory: ./quizz-master-frontend
+      - name: Test Frontend
+        run: npm run test
+        working-directory: ./quizz-master-frontend
