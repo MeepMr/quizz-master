@@ -9,4 +9,15 @@ import {MultipleChoiceQuestion} from '../../../shared/model/question/multiple-ch
 export class ShowMultipleChoiceQuestionComponent {
 
   @Input() activeMultipleChoiceQuestion: MultipleChoiceQuestion = new MultipleChoiceQuestion(-1, '', -1, [])
+
+  answered: boolean = false;
+  correctAnswered: boolean = false;
+  selectedAnswer: String = '';
+
+  clickedAnswer(answer: String): void {
+    this.activeMultipleChoiceQuestion.answered = true;
+    this.answered = true;
+    this.correctAnswered = this.activeMultipleChoiceQuestion.correctAnswer === answer;
+    this.selectedAnswer = answer;
+  }
 }
