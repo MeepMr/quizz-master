@@ -30,8 +30,8 @@ import { ShowActionQuestionComponent } from './components/quiz-question/show-act
     ShowActionQuestionComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

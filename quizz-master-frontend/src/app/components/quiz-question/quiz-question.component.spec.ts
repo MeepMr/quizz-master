@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuizQuestionComponent } from './quiz-question.component';
+import {ShowMultipleChoiceQuestionComponent} from './show-multiple-choice-question/show-multiple-choice-question.component';
+import {ShowActionQuestionComponent} from './show-action-question/show-action-question.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('QuizQuestionComponent', () => {
   let component: QuizQuestionComponent;
@@ -8,7 +11,14 @@ describe('QuizQuestionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QuizQuestionComponent ]
+      declarations: [
+        QuizQuestionComponent,
+        ShowMultipleChoiceQuestionComponent,
+        ShowActionQuestionComponent,
+      ],
+      imports: [
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   });

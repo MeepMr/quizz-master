@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {QuizBoardColumn} from '../../../shared/model/quiz/quiz-board-column';
 
 @Component({
@@ -6,11 +6,8 @@ import {QuizBoardColumn} from '../../../shared/model/quiz/quiz-board-column';
   templateUrl: './quiz-board-column.component.html',
   styleUrls: ['./quiz-board-column.component.scss']
 })
-export class QuizBoardColumnComponent implements OnInit {
+export class QuizBoardColumnComponent {
 
   @Input() column: QuizBoardColumn = new QuizBoardColumn(-1, '');
 
-  ngOnInit(): void {
-    const uselessBoolean: boolean = true;
-  }
 }

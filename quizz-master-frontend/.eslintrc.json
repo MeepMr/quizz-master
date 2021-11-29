@@ -3,7 +3,8 @@
   "root": true,
   "ignorePatterns": [
     "projects/**/*",
-    "test.ts"
+    "test.ts",
+    "src/app/shared/mock/*"
   ],
   "overrides": [
     {

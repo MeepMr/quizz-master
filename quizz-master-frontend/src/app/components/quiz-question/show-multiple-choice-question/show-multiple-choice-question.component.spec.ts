@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowMultipleChoiceQuestionComponent } from './show-multiple-choice-quesion.component';
+import { ShowMultipleChoiceQuestionComponent } from './show-multiple-choice-question.component';
 
 describe('ShowMultipleChoiceQuesionComponent', () => {
   let component: ShowMultipleChoiceQuestionComponent;
