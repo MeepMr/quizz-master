@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Quiz} from '../../shared/model/quiz/quiz';
 
 @Component({
@@ -6,10 +6,7 @@ import {Quiz} from '../../shared/model/quiz/quiz';
   templateUrl: './quiz-board.component.html',
   styleUrls: ['./quiz-board.component.scss']
 })
-export class QuizBoardComponent implements OnInit {
+export class QuizBoardComponent {
 
   @Input() activeQuiz?: Quiz | null;
-
-  ngOnInit(): void {
-  }
 }

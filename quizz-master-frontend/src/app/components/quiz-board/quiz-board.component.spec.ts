@@ -1,9 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuizBoardComponent } from './quiz-board.component';
-import {QuizBoardColumnComponent} from "./quiz-board-column/quiz-board-column.component";
-import {QuizBoardQuestionComponent} from "./quiz-board-question/quiz-board-question.component";
-import {RouterTestingModule} from "@angular/router/testing";
+import {QuizBoardColumnComponent} from './quiz-board-column/quiz-board-column.component';
+import {QuizBoardQuestionComponent} from './quiz-board-question/quiz-board-question.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('QuizViewComponent', () => {
   let component: QuizBoardComponent;

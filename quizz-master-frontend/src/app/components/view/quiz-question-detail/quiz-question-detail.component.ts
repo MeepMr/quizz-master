@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {QuestionService} from "../../../services/question-service/question.service";
-import {QuizQuestion} from "../../../shared/model/question/quiz-question";
-import {Observable, of} from "rxjs";
+import {ActivatedRoute} from '@angular/router';
+import {QuestionService} from '../../../services/question-service/question.service';
+import {QuizQuestion} from '../../../shared/model/question/quiz-question';
+import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-quiz-question-detail',
@@ -11,9 +11,9 @@ import {Observable, of} from "rxjs";
 })
 export class QuizQuestionDetailComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private questionService: QuestionService) { }
-
   activeQuestion: Observable<QuizQuestion> = of(new QuizQuestion(-1, '', -1));
+
+  constructor(private activatedRoute: ActivatedRoute, private questionService: QuestionService) { }
 
   ngOnInit(): void {
     this.getCurrentQuestion();
