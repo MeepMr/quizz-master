@@ -1,16 +1,18 @@
-<div class="container-fluid">
-  <a class="btn-toolbar btn-outline-light m-1 btn align-items-center justify-content-center"
-    [routerLink]="['/quiz/0']">
-    <i class="bi bi-arrow-left m-2"></i>
-    Go back to the Quiz-Board
-  </a>
-  <div class="container bg-light card">
-    <p class="card-header">{{activeQuestion?.questionText}}</p>
+<div class="container">
+  <div class="bg-light card">
+    <p class="card-header text-center fs-2">{{activeQuestion?.questionText}}</p>
     <div *ngIf="activeMultipleChoiceQuestion">
       <app-show-multiple-choice-question [activeMultipleChoiceQuestion]="activeMultipleChoiceQuestion"></app-show-multiple-choice-question>
     </div>
     <div *ngIf="activeActionQuestion">
       <app-show-action-question [activeActionQuestion]="activeActionQuestion"></app-show-action-question>
+    </div>
+    <div class="card-footer">
+      <a class="btn-toolbar btn-light btn align-items-center justify-content-center fs-4"
+         [routerLink]="['/quiz/0']">
+        <i class="bi bi-arrow-left m-2"></i>
+        Go back to the Quiz-Board
+      </a>
     </div>
   </div>
 </div>
