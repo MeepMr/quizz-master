@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuizQuestionDetailComponent } from './quiz-question-detail.component';
+import {QuizQuestionComponent} from "../../quiz-question/quiz-question.component";
+import {ShowMultipleChoiceQuestionComponent} from "../../quiz-question/show-multiple-choice-question/show-multiple-choice-question.component";
+import {ShowActionQuestionComponent} from "../../quiz-question/show-action-question/show-action-question.component";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('QuizQuestionDetailComponent', () => {
   let component: QuizQuestionDetailComponent;
@@ -8,7 +12,15 @@ describe('QuizQuestionDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QuizQuestionDetailComponent ]
+      declarations: [
+        QuizQuestionDetailComponent,
+        QuizQuestionComponent,
+        ShowMultipleChoiceQuestionComponent,
+        ShowActionQuestionComponent
+      ],
+      imports: [
+        RouterTestingModule
+      ]
     })
     .compileComponents();
   });

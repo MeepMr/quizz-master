@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {MultipleChoiceQuestion} from "../../../shared/model/question/multiple-choice-question";
 import {ActionQuestion} from "../../../shared/model/question/action-question";
 
 @Component({

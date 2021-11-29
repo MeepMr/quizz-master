@@ -121,8 +121,4 @@ export class QUESTION_MOCK {
 
     return this.allQuestions;
   }
-
-  getMultipleChoiceQuestion(id: number): MultipleChoiceQuestion {
-    return (<MultipleChoiceQuestion>this.allQuestions[id]);
-  }
 }
