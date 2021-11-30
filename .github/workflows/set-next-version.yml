@@ -23,7 +23,7 @@ jobs:
 
       - name: Get incremented Version
         id: new-version
-        run: OUT=${{ steps.version-parts.outputs.prefix-1 }}.${{ steps.prefix-2.outputs.prefix-2 }}.$((${{ steps.suffix.outputs.suffix }}+1)) && echo ::set-output name=version::$OUT
+        run: OUT=${{ steps.version-parts.outputs.prefix-1 }}.${{ steps.version-parts.outputs.prefix-2 }}.$((${{ steps.version-parts.outputs.suffix }}+1)) && echo ::set-output name=version::$OUT
         
       - name: Output New Version
         id: output-version
