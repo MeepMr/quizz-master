@@ -8,50 +8,37 @@ on:
 jobs:
   generate-new-version:
     runs-on: ubuntu-latest
-    outputs: 
-      version: ${{ steps.output-version.outputs.version }}
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Get Version
-        run: VERSION_NUMBER=$(head -n3 package.json | tail -n1 | cut -d '"' -f4)
+        id: old
+        run: OUT=$(head -n3 package.json | tail -n1 | cut -d '"' -f4) && echo ::set-output name=v::$OUT
         working-directory: ./quizz-master-frontend
 
-      - name: Get First Version Prefix
-        run: VERSION_PREFIX_1=$(echo $VERSION_NR | cut -d '.' -f1)
-
-      - name: Get First Version Prefix
-        run: VERSION_PREFIX_2=$(echo $VERSION_NR | cut -d '.' -f2)
-
-      - name: Get Version Suffix
-        run: VERSION_SUFFIX=$(echo $VERSION_NR | cut -d '.' -f3)
+      - name: Get First Version Parts
+        id: version-parts
+        run: OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f1) && echo ::set-output name=prefix-1::$OUT && OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f2) && echo ::set-output name=prefix-2::$OUT && OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f3) && echo ::set-output name=suffix::$OUT
 
       - name: Get incremented Version
-        run: VERSION_NUMBER=$VERSION_PREFIX_1.$VERSION_PREFIX_2.$(($VERSION_SUFFIX+1))
+        id: new-version
+        run: OUT=${{ steps.version-parts.outputs.prefix-1 }}.${{ steps.version-parts.outputs.prefix-2 }}.$((${{ steps.version-parts.outputs.suffix }}+1)) && echo ::set-output name=version::$OUT
         
       - name: Output New Version
         id: output-version
-        run: echo $VERSION_NUMBER && echo ::set-output name=version::$VERSION_NUMBER
+        run: echo ${{ steps.new-version.outputs.version }}
 
-  set-new-version:
-    runs-on: ubuntu-latest
-    needs: generate-new-version
-    steps:
-      - uses: actions/checkout@v2
       - name: Set Version in Frontend
-        run: npm version ${{ needs.generate-new-version.outputs.version }}
+        run: npm version ${{ steps.new-version.outputs.version }}
         working-directory: ./quizz-master-frontend
 
       - name: Set Version in version.txt
-        run: echo ${{ needs.generate-new-version.outputs.version }} > version.txt
+        run: echo ${{ steps.new-version.outputs.version }} > version.txt
 
       - name: Push changes to GitHub
         uses: github-actions-x/commit@v2.8
         with:
-          # Github Token with commit access
           github-token: ${{ env.GITHUB_TOKEN }}
-          # Override branch to push to
           push-branch: dev
-          # Specify commit message
-          commit-message: Incremented Version to ${{ needs.generate-new-version.outputs.version }}
+          commit-message: Incremented Version to ${{ steps.new-version.outputs.version }}
