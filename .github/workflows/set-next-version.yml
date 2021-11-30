@@ -36,8 +36,11 @@ jobs:
         run: echo $VERSION_NUMBER > version.txt
 
       - name: Push changes to GitHub
-        uses: test-room-7/action-update-file@v1.6.0
+        uses: github-actions-x/commit@v2.8
         with:
-          commit-msg: Incremented Version to $VERSION_NUMBER
-          branch: dev
+          # Github Token with commit access
           github-token: ${{ env.GITHUB_TOKEN }}
+          # Override branch to push to
+          push-branch: dev
+          # Specify commit message
+          commit-message: Incremented Version to $VERSION_NUMBER
