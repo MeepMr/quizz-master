@@ -36,8 +36,14 @@ jobs:
       - name: Set Version in version.txt
         run: echo ${{ steps.new-version.outputs.version }} > version.txt
         
+      - name: Show Changes
+        run: cat version.txt && cat ./quizz-master-frontend/package.json
+        
       - name: Add Changes to Git
         run: git add .
+        
+      - name: Commit Changes
+        run: git commit -m "Incremented Version to ${{ steps.new-version.outputs.version }}"
 
       - name: Push changes to GitHub
         uses: github-actions-x/commit@v2.8
