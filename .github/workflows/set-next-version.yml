@@ -3,6 +3,9 @@ name: Set-Next-Version
 on:
   workflow_run:
     workflows: ["Build Docker Images"]
+    branches: [main]
+    types:
+      -completed
   workflow_dispatch:
 
 jobs:
@@ -17,14 +20,17 @@ jobs:
         run: OUT=$(head -n3 package.json | tail -n1 | cut -d '"' -f4) && echo ::set-output name=v::$OUT
         working-directory: ./quizz-master-frontend
 
-      - name: Get First Version Parts
+      - name: Get Version Parts
         id: version-parts
-        run: OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f1) && echo ::set-output name=prefix-1::$OUT && OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f2) && echo ::set-output name=prefix-2::$OUT && OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f3) && echo ::set-output name=suffix::$OUT
+        run: |
+          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f1) && echo ::set-output name=prefix-1::$OUT
+          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f2) && echo ::set-output name=prefix-2::$OUT
+          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f3) && echo ::set-output name=suffix::$OUT
 
       - name: Get incremented Version
         id: new-version
         run: OUT=${{ steps.version-parts.outputs.prefix-1 }}.${{ steps.version-parts.outputs.prefix-2 }}.$((${{ steps.version-parts.outputs.suffix }}+1)) && echo ::set-output name=version::$OUT
-        
+
       - name: Output New Version
         id: output-version
         run: echo ${{ steps.new-version.outputs.version }}
@@ -35,9 +41,6 @@ jobs:
 
       - name: Set Version in version.txt
         run: echo ${{ steps.new-version.outputs.version }} > version.txt
-        
-      - name: Show Changes
-        run: cat version.txt && cat ./quizz-master-frontend/package.json
 
       - name: Push changes to GitHub
         uses: actions-x/commit@v2
