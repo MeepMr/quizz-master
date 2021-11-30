@@ -40,3 +40,4 @@ jobs:
         with:
           commit-msg: Incremented Version to $VERSION_NUMBER
           branch: dev
+          github-token: ${{ env.GITHUB_TOKEN }}
