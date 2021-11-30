@@ -15,17 +15,17 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Get Version
-        run: VERSION_NUMBER=`head -n3 package.json | tail -n1 | cut -d '"' -f4`
+        run: VERSION_NUMBER=$(head -n3 package.json | tail -n1 | cut -d '"' -f4)
         working-directory: ./quizz-master-frontend
 
       - name: Get First Version Prefix
-        run: VERSION_PREFIX_1=`echo $VERSION_NR | cut -d '.' -f1`
+        run: VERSION_PREFIX_1=$(echo $VERSION_NR | cut -d '.' -f1)
 
       - name: Get First Version Prefix
-        run: VERSION_PREFIX_2=`echo $VERSION_NR | cut -d '.' -f2`
+        run: VERSION_PREFIX_2=$(echo $VERSION_NR | cut -d '.' -f2)
 
       - name: Get Version Suffix
-        run: VERSION_SUFFIX=`echo $VERSION_NR | cut -d '.' -f3`
+        run: VERSION_SUFFIX=$(echo $VERSION_NR | cut -d '.' -f3)
 
       - name: Get incremented Version
         run: VERSION_NUMBER=$VERSION_PREFIX_1.$VERSION_PREFIX_2.$(($VERSION_SUFFIX+1))
