@@ -26,6 +26,9 @@ jobs:
 
       - name: Get Version Suffix
         run: VERSION_SUFFIX=$(echo $VERSION_NR | cut -d '.' -f3)
+        
+      - name: Output old Version
+        run: echo $VERSION_NUMBER && echo "$VERSION_PREFIX_1.$VERSION_PREFIX_2.$(($VERSION_SUFFIX+1))"
 
       - name: Get incremented Version
         run: VERSION_NUMBER=$VERSION_PREFIX_1.$VERSION_PREFIX_2.$(($VERSION_SUFFIX+1))
