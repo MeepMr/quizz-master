@@ -1,4 +1,6 @@
-qm-backend-app/build/
-qm-backend-logic/build/
-qm-backend-model/build/
+/qm-backend-app/build/
+/qm-backend-logic/build/
+/qm-backend-model/build/
 /.gradle/
+/qm-backend-data/build/tmp/jar/MANIFEST.MF
+/qm-backend-data/build/libs/qm-backend-data.jar
