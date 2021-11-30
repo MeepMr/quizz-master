@@ -15,7 +15,7 @@ jobs:
       - name: Npm Setup
         uses: actions/setup-node@v1
         with:
-          node-version: '1.x'
+          node-version: '14.x'
       - name: Run npm install
         run: npm install
         working-directory: ./quizz-master-frontend
