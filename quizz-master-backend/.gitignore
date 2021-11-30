@@ -1,0 +1,4 @@
+./quizz-master-backend/.gradle/
+./quizz-master-backend/qm-backend-app/build/
+./quizz-master-backend/qm-backend-logic/build/
+./quizz-master-backend/qm-backend-model/build/
