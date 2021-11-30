@@ -2,7 +2,9 @@ name: Set-Next-Version
 
 on:
   workflow_run:
-    workflows: [""]
+    workflows: ["Build Docker Images"]
+    types:
+      - complete
 
 jobs:
   build:
