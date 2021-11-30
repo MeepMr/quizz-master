@@ -3,39 +3,51 @@ name: Set-Next-Version
 on:
   workflow_run:
     workflows: ["Build Docker Images"]
+    branches: [main]
     types:
-      - complete
+      -completed
   workflow_dispatch:
 
 jobs:
-  build:
+  generate-new-version:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Get Version
-        run: VERSION_NUMBER=`head -n3 package.json | tail -n1 | cut -d '"' -f4`
+        id: old
+        run: OUT=$(head -n3 package.json | tail -n1 | cut -d '"' -f4) && echo ::set-output name=v::$OUT
         working-directory: ./quizz-master-frontend
 
-      - name: Get Version Prefix
-        run: VERSION_PREFIX=`echo $VERSION_NR | cut -d '.' -f{1,2}`
+      - name: Get Version Parts
+        id: version-parts
+        run: |
+          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f1) && echo ::set-output name=prefix-1::$OUT
+          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f2) && echo ::set-output name=prefix-2::$OUT
+          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f3) && echo ::set-output name=suffix::$OUT
 
-      - name: Get Version Suffix
-        run: VERSION_SUFFIX=`echo $VERSION_NR | cut -d '.' -f3`
+      - name: Get incremented Version
+        id: new-version
+        run: OUT=${{ steps.version-parts.outputs.prefix-1 }}.${{ steps.version-parts.outputs.prefix-2 }}.$((${{ steps.version-parts.outputs.suffix }}+1)) && echo ::set-output name=version::$OUT
 
-      - name: Set incremented Version
-        run: VERSION_NUMBER=$VERSION_PREFIX.$(($VERSION_SUFFIX+1))
+      - name: Output New Version
+        id: output-version
+        run: echo ${{ steps.new-version.outputs.version }}
 
       - name: Set Version in Frontend
-        run: npm version $VERSION_NUMBER
+        run: npm version ${{ steps.new-version.outputs.version }}
         working-directory: ./quizz-master-frontend
 
       - name: Set Version in version.txt
-        run: echo $VERSION_NUMBER > version.txt
+        run: echo ${{ steps.new-version.outputs.version }} > version.txt
 
       - name: Push changes to GitHub
-        uses: test-room-7/action-update-file@v1.6.0
+        uses: actions-x/commit@v2
         with:
-          commit-msg: Incremented Version to $VERSION_NUMBER
+          name: GitHub Actions Version-Incrementer
+          token: ${{ env.GITHUB_TOKEN }}
+          repository: https://github.com/MeepMr/quizz-master
           branch: dev
+          message: Incremented Version to ${{ steps.new-version.outputs.version }}
+          files: version.txt ./quizz-master-frontend/package.json
