@@ -1,0 +1,41 @@
+name: Set-Next-Version
+
+on:
+  workflow_run:
+    workflows: ["Build Docker Images"]
+    types:
+      - complete
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get Version
+        run: VERSION_NUMBER=`head -n3 package.json | tail -n1 | cut -d '"' -f4`
+        working-directory: ./quizz-master-frontend
+
+      - name: Get Version Prefix
+        run: VERSION_PREFIX=`echo $VERSION_NR | cut -d '.' -f{1,2}`
+
+      - name: Get Version Suffix
+        run: VERSION_SUFFIX=`echo $VERSION_NR | cut -d '.' -f3`
+
+      - name: Set incremented Version
+        run: VERSION_NUMBER=$VERSION_PREFIX.$(($VERSION_SUFFIX+1))
+
+      - name: Set Version in Frontend
+        run: npm version $VERSION_NUMBER
+        working-directory: ./quizz-master-frontend
+
+      - name: Set Version in version.txt
+        run: echo $VERSION_NUMBER > version.txt
+
+      - name: Push changes to GitHub
+        uses: test-room-7/action-update-file@v1.6.0
+        with:
+          commit-msg: Incremented Version to $VERSION_NUMBER
+          branch: dev

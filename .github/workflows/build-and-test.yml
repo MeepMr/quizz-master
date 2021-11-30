@@ -4,7 +4,7 @@ on:
   push:
     branches: [ dev ]
   pull_request:
-    branches: [ master, dev ]
+    branches: [ dev ]
 
 jobs:
   build-frontend:
@@ -22,7 +22,7 @@ jobs:
       - name: Build Frontend
         run: npm run build
         working-directory: ./quizz-master-frontend
-        
+
   lint-frontend:
     runs-on: ubuntu-latest
     name: Lint Frontend
@@ -54,3 +54,37 @@ jobs:
       - name: Test Frontend
         run: npm run test
         working-directory: ./quizz-master-frontend
+
+  test-backend:
+    runs-on: ubuntu-latest
+    name: Test Backend
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Add execution privileges
+      run: chmod +x ./gradlew
+      working-directory: ./quizz-master-backend
+    - name: Test Backend
+      run: ./gradlew check
+      working-directory: ./quizz-master-backend
+
+  build-backend:
+    runs-on: ubuntu-latest
+    name: Build Backend
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Add execution privileges
+      run: chmod +x ./gradlew
+      working-directory: ./quizz-master-backend
+    - name: Test Backend
+      run: ./gradlew bootJar
+      working-directory: ./quizz-master-backend
