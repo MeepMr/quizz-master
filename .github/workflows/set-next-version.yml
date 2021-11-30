@@ -18,6 +18,10 @@ jobs:
         run: VERSION_NUMBER=$(head -n3 package.json | tail -n1 | cut -d '"' -f4)
         working-directory: ./quizz-master-frontend
 
+      - name: Log Version
+        run: cat package.json && echo $(head -n3 package.json | tail -n1 | cut -d '"' -f4)
+        working-directory: ./quizz-master-frontend
+
       - name: Get First Version Prefix
         run: VERSION_PREFIX_1=$(echo $VERSION_NR | cut -d '.' -f1)
 
