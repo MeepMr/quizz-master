@@ -40,10 +40,11 @@ jobs:
         run: cat version.txt && cat ./quizz-master-frontend/package.json
 
       - name: Push changes to GitHub
-        uses: github-actions-x/commit@v2.8
+        uses: actions-x/commit@v2
         with:
-          github-token: ${{ env.GITHUB_TOKEN }}
+          name: GitHub Actions Version-Incrementer
+          token: ${{ env.GITHUB_TOKEN }}
+          repository: https://github.com/MeepMr/quizz-master
           push-branch: dev
           commit-message: Incremented Version to ${{ steps.new-version.outputs.version }}
-          force-add: true
-          files: ./version.txt ./quizz-master-frontend/package.json
+          files: version.txt ./quizz-master-frontend/package.json
