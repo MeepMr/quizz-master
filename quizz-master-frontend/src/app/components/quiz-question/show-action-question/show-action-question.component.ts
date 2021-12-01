@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {ActionQuestion} from '../../../shared/model/question/action-question';
+import { Component, Input } from '@angular/core';
+import { ActionQuestion } from '../../../shared/model/question/action-question';
 
 @Component({
   selector: 'app-show-action-question',

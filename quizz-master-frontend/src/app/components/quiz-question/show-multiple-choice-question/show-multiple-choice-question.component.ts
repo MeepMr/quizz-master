@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {MultipleChoiceQuestion} from '../../../shared/model/question/multiple-choice-question';
+import { Component, Input } from '@angular/core';
+import { MultipleChoiceQuestion } from '../../../shared/model/question/multiple-choice-question';
 
 @Component({
   selector: 'app-show-multiple-choice-question',

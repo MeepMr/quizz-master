@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class QmBackendAppApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(QmBackendAppApplication.class, args);
-    }
-
+  public static void main(String[] args) {
+    SpringApplication.run(QmBackendAppApplication.class, args);
+  }
 }

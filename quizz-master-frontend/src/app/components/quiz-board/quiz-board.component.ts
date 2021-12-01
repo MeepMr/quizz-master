@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {Quiz} from '../../shared/model/quiz/quiz';
+import { Component, Input } from '@angular/core';
+import { Quiz } from '../../shared/model/quiz/quiz';
 
 @Component({
   selector: 'app-quiz-board',

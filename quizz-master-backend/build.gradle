@@ -1,8 +1,24 @@
 group 'de.jklein'
 version '0.0.1'
 
+buildscript {
+
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'com.diffplug.spotless:spotless-plugin-gradle:3.27.1'
+    }
+}
+
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'checkstyle'
+    apply plugin: 'com.diffplug.gradle.spotless'
+
     sourceCompatibility = '11'
 
     repositories {
@@ -16,5 +32,22 @@ subprojects {
 
     test {
         useJUnitPlatform()
+    }
+
+    checkstyle {
+        toolVersion '8.29'
+    }
+
+    spotless {
+        format 'misc', {
+            target '**/*.gradle','**/.*.md','**/.gitignore'
+
+            trimTrailingWhitespace()
+            indentWithSpaces()
+            endWithNewline()
+        }
+        java {
+            googleJavaFormat()
+        }
     }
 }
