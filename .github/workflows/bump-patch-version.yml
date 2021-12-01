@@ -45,7 +45,5 @@ jobs:
         with:
           name: GitHub Actions Version-Incrementer
           token: ${{ env.GITHUB_TOKEN }}
-          repository: https://github.com/MeepMr/quizz-master
-          branch: dev
           message: Incremented Version to ${{ steps.new-version.outputs.version }}
           files: version.txt ./quizz-master-frontend/package.json
