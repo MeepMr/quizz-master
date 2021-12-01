@@ -14,6 +14,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: dev
+          fetch-depth: 0
 
       - name: Get Version
         id: old
@@ -45,7 +46,6 @@ jobs:
         with:
           name: GitHub Actions Version-Incrementer
           token: ${{ env.GITHUB_TOKEN }}
-          repository: https://github.com/MeepMr/quizz-master
-          branch: dev
           message: Incremented Version to ${{ steps.new-version.outputs.version }}
+          branch: dev
           files: version.txt ./quizz-master-frontend/package.json
