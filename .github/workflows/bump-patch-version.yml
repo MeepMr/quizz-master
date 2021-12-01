@@ -47,4 +47,5 @@ jobs:
           name: GitHub Actions Version-Incrementer
           token: ${{ env.GITHUB_TOKEN }}
           message: Incremented Version to ${{ steps.new-version.outputs.version }}
+          branch: dev
           files: version.txt ./quizz-master-frontend/package.json
