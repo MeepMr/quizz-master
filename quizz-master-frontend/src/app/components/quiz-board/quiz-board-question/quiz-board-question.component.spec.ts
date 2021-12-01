@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuizBoardQuestionComponent } from './quiz-board-question.component';
-import {RouterTestingModule} from '@angular/router/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('QuizBoardQuestionComponent', () => {
   let component: QuizBoardQuestionComponent;

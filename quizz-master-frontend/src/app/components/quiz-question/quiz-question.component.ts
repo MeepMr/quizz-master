@@ -1,8 +1,8 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {QuizQuestion} from '../../shared/model/question/quiz-question';
-import {MultipleChoiceQuestion} from '../../shared/model/question/multiple-choice-question';
-import {QuestionType} from '../../shared/model/question/question-type';
-import {ActionQuestion} from '../../shared/model/question/action-question';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { QuizQuestion } from '../../shared/model/question/quiz-question';
+import { MultipleChoiceQuestion } from '../../shared/model/question/multiple-choice-question';
+import { QuestionType } from '../../shared/model/question/question-type';
+import { ActionQuestion } from '../../shared/model/question/action-question';
 
 @Component({
   selector: 'app-quiz-question',

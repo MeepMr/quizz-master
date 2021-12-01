@@ -1,4 +1,4 @@
-import {QuestionType} from './question-type';
+import { QuestionType } from './question-type';
 
 export class QuizQuestion {
 

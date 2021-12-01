@@ -1,4 +1,4 @@
-import {QuizBoardColumn} from './quiz-board-column';
+import { QuizBoardColumn } from './quiz-board-column';
 
 export class Quiz {
   id: number;

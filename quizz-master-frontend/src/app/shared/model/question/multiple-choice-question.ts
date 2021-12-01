@@ -1,5 +1,5 @@
-import {QuizQuestion} from './quiz-question';
-import {QuestionType} from './question-type';
+import { QuizQuestion } from './quiz-question';
+import { QuestionType } from './question-type';
 
 export class MultipleChoiceQuestion extends QuizQuestion {
 

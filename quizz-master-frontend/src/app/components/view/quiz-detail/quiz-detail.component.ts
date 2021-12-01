@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {QuizService} from '../../../services/quiz-service/quiz.service';
-import {Observable, of} from 'rxjs';
-import {Quiz} from '../../../shared/model/quiz/quiz';
+import { ActivatedRoute } from '@angular/router';
+import { QuizService } from '../../../services/quiz-service/quiz.service';
+import { Observable, of } from 'rxjs';
+import { Quiz } from '../../../shared/model/quiz/quiz';
 
 @Component({
   selector: 'app-quiz-detail',

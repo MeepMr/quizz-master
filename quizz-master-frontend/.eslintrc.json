@@ -28,6 +28,10 @@
         "eslint-plugin-unicorn"
       ],
       "rules": {
+        "object-curly-spacing": [
+          "error",
+          "always"
+        ],
         "@angular-eslint/component-selector": [
           "error",
           {
