@@ -72,5 +72,5 @@ jobs:
     - name: Trigger Version Bump
       uses: peter-evans/repository-dispatch@v1
       with:
-        token: ${{ env.GITHUB_TOKEN }}
+        token: ${{ secrets.DISPATCH_TOKEN }}
         event-type: bump_patch_version
