@@ -71,7 +71,7 @@ jobs:
       run: chmod +x ./gradlew
       working-directory: ./quizz-master-backend
     - name: Build Backend
-      run: ./gradlew bootJar
+      run: ./gradlew -PprojVersion=${{ needs.set-version.outputs.version-number }} bootJar
       working-directory: ./quizz-master-backend
     - name: Set up QEMU
       uses: docker/setup-qemu-action@master
@@ -107,3 +107,13 @@ jobs:
       with:
         token: ${{ secrets.DISPATCH_TOKEN }}
         event-type: bump_patch_version
+
+  trigger-deployment:
+    needs: [build-backend-container, build-frontend-container]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger Portainer Redeploy
+      uses: fjogeleit/http-request-action@master
+      with:
+        url: '${{ secrets.PORTAINER_DEPLOY_TRIGGER }}'
+        method: 'POST'
