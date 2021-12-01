@@ -103,6 +103,6 @@ jobs:
     - name: Add execution privileges
       run: chmod +x ./gradlew
       working-directory: ./quizz-master-backend
-    - name: Test Backend
+    - name: Build Backend
       run: ./gradlew bootJar
       working-directory: ./quizz-master-backend
