@@ -1,0 +1,19 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Test-Trigger
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  trigger-bump_patch_version:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger Version Bump
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.DISPATCH_TOKEN }}
+        event-type: bump_patch_version
