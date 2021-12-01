@@ -2,6 +2,7 @@ version: "2"
 
 networks:
   qm-intern:
+  qm-reverse-proxy-interface:
 
 services:
   qm-frontend:
@@ -9,3 +10,4 @@ services:
     restart: always
     networks:
       - qm-intern
+      - qm-reverse-proxy-interface
