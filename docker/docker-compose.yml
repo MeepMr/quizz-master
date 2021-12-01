@@ -1,0 +1,11 @@
+version: "2"
+
+networks:
+  qm-intern:
+
+services:
+  qm-frontend:
+    image: ghcr.io/meepmr/quizz-master-frontend:latest
+    restart: always
+    networks:
+      - qm-intern
