@@ -6,18 +6,16 @@ on:
 
 jobs:
   set-version:
-      runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-      outputs:
-        version-number: ${{ steps.get-version-number.outputs.version }}
-      steps:
-        - uses: actions/checkout@v2
+    outputs:
+      version-number: ${{ steps.get-version-number.outputs.version }}
+    steps:
+      - uses: actions/checkout@v2
 
-        - name: Read package version
-          id: get-version-number
-          run: PACKAGE_VERSION=$(head -n 1 version.txt) && echo $PACKAGE_VERSION && echo ::set-output name=version::$PACKAGE_VERSION
-          env:
-            ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+      - name: Read package version
+        id: get-version-number
+        run: PACKAGE_VERSION=$(head -n 1 version.txt) && echo ::set-output name=version::$PACKAGE_VERSION
 
   build-frontend-container:
     needs: set-version
@@ -25,8 +23,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: print version
-      run: echo ${{ needs.set-version.outputs.version-number }}
     - name: Npm Setup
       uses: actions/setup-node@v1
       with:
@@ -61,3 +57,20 @@ jobs:
         tags: |
           ghcr.io/meepmr/quizz-master-frontend:${{ needs.set-version.outputs.version-number }}
           ghcr.io/meepmr/quizz-master-frontend:latest
+
+  build-backend-container:
+    needs: set-version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print
+        run: echo Hello
+
+  trigger-bump_patch_version:
+    needs: [build-backend-container, build-frontend-container]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Trigger Version Bump
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ env.GITHUB_TOKEN }}
+        event-type: bump_patch_version

@@ -1,11 +1,9 @@
-name: Set-Next-Version
+name: Bump Patch Version
 
 on:
-  workflow_run:
-    workflows: ["Build Docker Images"]
-    branches: [main]
-    types:
-      - completed
+  repository_dispatch:
+    types: [bump_patch_version]
+
   workflow_dispatch:
 
 jobs:
@@ -14,6 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: dev
 
       - name: Get Version
         id: old
@@ -23,17 +23,15 @@ jobs:
       - name: Get Version Parts
         id: version-parts
         run: |
-          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f1) && echo ::set-output name=prefix-1::$OUT
-          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f2) && echo ::set-output name=prefix-2::$OUT
-          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f3) && echo ::set-output name=suffix::$OUT
+          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f1) && echo ::set-output name=major::$OUT
+          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f2) && echo ::set-output name=minor::$OUT
+          OUT=$(echo ${{ steps.old.outputs.v }} | cut -d '.' -f3) && echo ::set-output name=patch::$OUT
 
       - name: Get incremented Version
         id: new-version
-        run: OUT=${{ steps.version-parts.outputs.prefix-1 }}.${{ steps.version-parts.outputs.prefix-2 }}.$((${{ steps.version-parts.outputs.suffix }}+1)) && echo ::set-output name=version::$OUT
-
-      - name: Output New Version
-        id: output-version
-        run: echo ${{ steps.new-version.outputs.version }}
+        run: |
+          OUT=${{ steps.version-parts.outputs.major }}.${{ steps.version-parts.outputs.minor }}.$((${{ steps.version-parts.outputs.patch }}+1))
+          echo ::set-output name=version::$OUT
 
       - name: Set Version in Frontend
         run: npm version ${{ steps.new-version.outputs.version }}
