@@ -1,1 +1,26 @@
-<p>show-yes-no-question works!</p>
+<div class="container btn-group">
+  <div class="btn m-1"
+    (click)="answerQuestion(true)"
+    [ngClass]="{
+      'btn-outline-success': !answered,
+      'disabled': answered,
+      'btn-success': answered && answeredCorrectly && answer == true,
+      'btn-outline-secondary': answered && (!answeredCorrectly && answer == true) || (answeredCorrectly && answer == false),
+      'btn-secondary': answered && !answeredCorrectly && answer == false
+    }"
+  >
+    Yes, of course!
+  </div>
+  <div class="btn m-1"
+    (click)="answerQuestion(false)"
+    [ngClass]="{
+      'btn-outline-danger': !answered,
+      'disabled': answered,
+      'btn-danger': answered && answeredCorrectly && answer == false,
+      'btn-outline-secondary': answered && (answeredCorrectly && answer == true) || (!answeredCorrectly && answer == false),
+      'btn-secondary': answered && !answeredCorrectly && answer == true
+    }"
+  >
+    No, never ever!
+  </div>
+</div>
