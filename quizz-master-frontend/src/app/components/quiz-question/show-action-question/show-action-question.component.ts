@@ -21,6 +21,7 @@ export class ShowActionQuestionComponent {
 
     this.timerStarted = true;
     this.initialTime$.next(this.activeActionQuestion.time)
+    this.activeActionQuestion.answered = true;
   }
 
   timerOver(): void {
@@ -30,7 +31,6 @@ export class ShowActionQuestionComponent {
 
   answerQuestion(successful: boolean) {
 
-    this.activeActionQuestion.answered = true;
     this.answeredCorrectly = successful;
   }
 }

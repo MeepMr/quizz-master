@@ -28,7 +28,7 @@ export class QUESTION_MOCK {
   question4_2: ActionQuestion;
   question4_3: YesNoQuestion;
   question4_4: MultipleChoiceQuestion;
-  question4_5: ActionQuestion;
+  question4_5: YesNoQuestion;
 
   question5_1: MultipleChoiceQuestion;
   question5_2: MultipleChoiceQuestion;
@@ -63,7 +63,7 @@ export class QUESTION_MOCK {
     this.question4_2 = new ActionQuestion(this.question_id_counter++, 'Pantomime: Einer aus der Gruppe muss pantomimisch ein bekanntes Adventslied darstellen.', 40, 120);
     this.question4_3 = new YesNoQuestion(this.question_id_counter++, '"Ihr Kinderlein kommet, o kommet doch all“ – Wisst ihr, wie der Text weitergeht?', 60);
     this.question4_4 = new MultipleChoiceQuestion(this.question_id_counter++, 'Von welcher Musikgruppe stammt das Album „Wir warten auf ’s Christkind?“', 80, ["Die Toten Hosen", "Bro'sis", "Die Ärzte", "Die Prinen"]);
-    this.question4_5 = new ActionQuestion(this.question_id_counter++, 'Höchststrafe! Singen!', 100, 120);
+    this.question4_5 = new YesNoQuestion(this.question_id_counter++, 'Höchststrafe! Singen! Singt gemeinsam als Gruppe eine Strophe eines Weihnachtsliedes. (vollständig!)', 100);
 
     this.question5_1 = new MultipleChoiceQuestion(this.question_id_counter++, 'Ein Münchner Jugend-Forschungsinstitut befragte mehr als 700 deutsche Kinder im Alter von sechs bis zwölf Jahren nach dem Grund für das Weihnachtsfest. Wie viele kannten den Grund nicht?', 20, ["39 Prozent", "9 Prozent", "19 Prozent", "29 Prozent"]);
     this.question5_2 = new MultipleChoiceQuestion(this.question_id_counter++, 'Was hat Frank sich zu Weihnachten gewünscht?', 40, ["CD", "Krawatte", "10er Karte Fitnessstudio", "Mussleshirt"]);
