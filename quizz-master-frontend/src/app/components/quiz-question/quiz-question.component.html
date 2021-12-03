@@ -7,6 +7,9 @@
     <div *ngIf="activeActionQuestion">
       <app-show-action-question [activeActionQuestion]="activeActionQuestion"></app-show-action-question>
     </div>
+    <div *ngIf="activeYesNoQuestion">
+      <app-show-yes-no-question [activeYesNoQuestion]="activeYesNoQuestion"></app-show-yes-no-question>
+    </div>
     <div class="card-footer">
       <a class="btn-toolbar btn-light btn align-items-center justify-content-center fs-4"
          [routerLink]="['/quiz/0']">
