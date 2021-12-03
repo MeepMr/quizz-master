@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, OnDestroy, Output} from '@angular/core';
-import {Observable, Subscription, timer} from "rxjs";
+import { Component, EventEmitter, Input, OnInit, OnDestroy, Output } from '@angular/core';
+import { Observable, Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-countdown-timer',
@@ -9,7 +9,7 @@ import {Observable, Subscription, timer} from "rxjs";
 export class CountdownTimerComponent implements OnInit, OnDestroy{
 
   @Input() initialTime$: Observable<number> = new Observable();
-  @Output() onTimeFunction: EventEmitter<void> = new EventEmitter<void>();
+  @Output() timerReadyFunction: EventEmitter<void> = new EventEmitter<void>();
 
   timeSubscription?: Subscription;
   componentSubscriptions$: Subscription[] = [];
@@ -19,10 +19,28 @@ export class CountdownTimerComponent implements OnInit, OnDestroy{
   remainingSeconds: number = 0;
   timeString: String = '00:00';
 
+  private static getTimeString(minutes: number, seconds: number): String {
+
+    const secondString: String = CountdownTimerComponent.getNumberString(seconds);
+    const minuteString: String = CountdownTimerComponent.getNumberString(minutes);
+
+    return `${minuteString  }:${  secondString}`;
+  }
+
+  private static getNumberString(number: number): String {
+
+    return String(number).padStart(2,'0');
+  }
+
   ngOnInit(): void {
 
     this.timeSubscription = this.initialTime$.subscribe(time => this.startTimer(time));
     this.componentSubscriptions$.push(this.timeSubscription);
+  }
+
+  ngOnDestroy() {
+
+    this.timeSubscription?.unsubscribe();
   }
 
   startTimer(time: number): void {
@@ -32,7 +50,7 @@ export class CountdownTimerComponent implements OnInit, OnDestroy{
       this.remainingSeconds = time;
       this.setTimeString();
 
-      let everySecondSubscription: Subscription = this.everySecond$.subscribe(() => this.timerInterval())
+      const everySecondSubscription: Subscription = this.everySecond$.subscribe(() => this.timerInterval())
       this.componentSubscriptions$.push(everySecondSubscription);
     }
   }
@@ -43,33 +61,16 @@ export class CountdownTimerComponent implements OnInit, OnDestroy{
       this.remainingSeconds--;
       this.setTimeString()
     } else {
-      this.onTimeFunction.emit();
+      this.timerReadyFunction.emit();
     }
-  }
-
-  ngOnDestroy() {
-
-    this.timeSubscription?.unsubscribe();
   }
 
   private setTimeString(): void {
 
-    let seconds = this.remainingSeconds % 60
-    let minutes = (this.remainingSeconds - seconds) / 60
+    const seconds: number = this.remainingSeconds % 60
+    const minutes: number = (this.remainingSeconds - seconds) / 60
 
     this.timeString = CountdownTimerComponent.getTimeString(minutes, seconds);
   }
 
-  private static getTimeString(minutes: number, seconds: number): String {
-
-    let secondString: String = CountdownTimerComponent.getNumberString(seconds);
-    let minuteString: String = CountdownTimerComponent.getNumberString(minutes);
-
-    return minuteString + ':' + secondString;
-  }
-
-  private static getNumberString(number: number): String {
-
-    return String(number).padStart(2,'0');
-  }
 }

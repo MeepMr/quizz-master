@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActionQuestion } from '../../../shared/model/question/action-question';
-import {BehaviorSubject} from "rxjs";
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-show-action-question',
