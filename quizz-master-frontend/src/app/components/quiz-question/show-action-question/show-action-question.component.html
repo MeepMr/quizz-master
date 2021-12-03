@@ -1,1 +1,32 @@
-<p>show-action-question works!</p>
+<div class="container">
+  <div class="container fs-3">
+    <app-countdown-timer [initialTime$]="initialTime$" (timerReadyFunction)="timerOver()"></app-countdown-timer>
+  </div>
+  <div class="btn-group container m-1">
+    <div class="btn"
+      (click)="startTimer()"
+      [ngClass]="{
+        'btn-success': !timerStarted,
+        'disabled btn-secondary': timerStarted
+      }"
+    >
+      Start Timer
+    </div>
+    <div class="btn btn-outline-success"
+      (click)="answerQuestion(true)"
+      [ngClass]="{
+        'disabled': !timeOver
+      }"
+    >
+      Mission Accomplished!
+    </div>
+    <div class="btn btn-outline-danger"
+      (click)="answerQuestion(false)"
+      [ngClass]="{
+        'disabled': !timeOver
+      }"
+    >
+      Mission Failed!
+    </div>
+  </div>
+</div>

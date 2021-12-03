@@ -1,6 +1,7 @@
 import {QuizQuestion} from '../model/question/quiz-question';
 import {MultipleChoiceQuestion} from '../model/question/multiple-choice-question';
 import {ActionQuestion} from '../model/question/action-question';
+import {YesNoQuestion} from "../model/question/yes-no-question";
 
 export class QUESTION_MOCK {
 
@@ -15,7 +16,7 @@ export class QUESTION_MOCK {
   question2_2: MultipleChoiceQuestion;
   question2_3: MultipleChoiceQuestion;
   question2_4: ActionQuestion;
-  question2_5: QuizQuestion;
+  question2_5: YesNoQuestion;
 
   question3_1: MultipleChoiceQuestion;
   question3_2: MultipleChoiceQuestion;
@@ -25,9 +26,9 @@ export class QUESTION_MOCK {
 
   question4_1: MultipleChoiceQuestion;
   question4_2: ActionQuestion;
-  question4_3: QuizQuestion;
+  question4_3: YesNoQuestion;
   question4_4: MultipleChoiceQuestion;
-  question4_5: ActionQuestion;
+  question4_5: YesNoQuestion;
 
   question5_1: MultipleChoiceQuestion;
   question5_2: MultipleChoiceQuestion;
@@ -50,7 +51,7 @@ export class QUESTION_MOCK {
     this.question2_2 = new MultipleChoiceQuestion(this.question_id_counter++, 'Als König Herodes bemerkt, dass die drei Weisen ihn betrogen haben, ist er sauer. Was tut er?', 40, ["Er befiehlt alle jüdischen Jungen unter zwei Jahren umzubringen", "Er schickt einen Suchtrupp los", "Er lässt alle Theater und Kneipen in Jerusalem schließen", "Er begibt sich in seinen Harem, um auf andere Gedanken zu kommen"]);
     this.question2_3 = new MultipleChoiceQuestion(this.question_id_counter++, 'Wovon erzählt die Weihnachtsgeschichte nichts?', 60, ["Tannenbaum", "Steuerlisten", "Engel", "Windeln"]);
     this.question2_4 = new ActionQuestion(this.question_id_counter++, 'Pantomime. Einer aus der Gruppe muss einen Satz aus der Weihnachtsgeschichte ohne Worte darstellen: sie fanden keinen Platz in der Herberge.',  80, 120);
-    this.question2_5 = new QuizQuestion(this.question_id_counter++, 'Welche Tiere sind nach den biblischen Berichten bei der Geburt Jesu im Stall anwesend? Achtung! Gut überlegen - 100 Punkte!',  100);
+    this.question2_5 = new YesNoQuestion(this.question_id_counter++, 'Welche Tiere sind nach den biblischen Berichten bei der Geburt Jesu im Stall anwesend? Achtung! Gut überlegen - 100 Punkte!',  100);
 
     this.question3_1 = new MultipleChoiceQuestion(this.question_id_counter++, 'Woraus sind „Weihnachtspyramiden“ gemacht?', 20, ["Holz", "Stein", "Lebkuchen", "Kerzenwachs"]);
     this.question3_2 = new MultipleChoiceQuestion(this.question_id_counter++, 'Welcher deutsche Ort ist bekannt für seine Lebkuchen?', 40, ["Nürnberg", "Berlin", "Hamburg", "Schwelm"])
@@ -60,9 +61,9 @@ export class QUESTION_MOCK {
 
     this.question4_1 = new MultipleChoiceQuestion(this.question_id_counter++, 'Welches Lied darf in keinem Weihnachtsgottesdienst fehlen?', 20, ["O du fröhliche", "Last Christmas", "Jingle Belts", "Kling Glöckchen"]);
     this.question4_2 = new ActionQuestion(this.question_id_counter++, 'Pantomime: Einer aus der Gruppe muss pantomimisch ein bekanntes Adventslied darstellen.', 40, 120);
-    this.question4_3 = new QuizQuestion(this.question_id_counter++, '"Ihr Kinderlein kommet, o kommet doch all“ – Wisst ihr, wie der Text weitergeht?', 60);
+    this.question4_3 = new YesNoQuestion(this.question_id_counter++, '"Ihr Kinderlein kommet, o kommet doch all“ – Wisst ihr, wie der Text weitergeht?', 60);
     this.question4_4 = new MultipleChoiceQuestion(this.question_id_counter++, 'Von welcher Musikgruppe stammt das Album „Wir warten auf ’s Christkind?“', 80, ["Die Toten Hosen", "Bro'sis", "Die Ärzte", "Die Prinen"]);
-    this.question4_5 = new ActionQuestion(this.question_id_counter++, 'Höchststrafe! Singen!', 100, 120);
+    this.question4_5 = new YesNoQuestion(this.question_id_counter++, 'Höchststrafe! Singen! Singt gemeinsam als Gruppe eine Strophe eines Weihnachtsliedes. (vollständig!)', 100);
 
     this.question5_1 = new MultipleChoiceQuestion(this.question_id_counter++, 'Ein Münchner Jugend-Forschungsinstitut befragte mehr als 700 deutsche Kinder im Alter von sechs bis zwölf Jahren nach dem Grund für das Weihnachtsfest. Wie viele kannten den Grund nicht?', 20, ["39 Prozent", "9 Prozent", "19 Prozent", "29 Prozent"]);
     this.question5_2 = new MultipleChoiceQuestion(this.question_id_counter++, 'Was hat Frank sich zu Weihnachten gewünscht?', 40, ["CD", "Krawatte", "10er Karte Fitnessstudio", "Mussleshirt"]);

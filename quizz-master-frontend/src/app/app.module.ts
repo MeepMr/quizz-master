@@ -13,6 +13,8 @@ import { QuizDetailComponent } from './components/view/quiz-detail/quiz-detail.c
 import { QuizQuestionDetailComponent } from './components/view/quiz-question-detail/quiz-question-detail.component';
 import { ShowMultipleChoiceQuestionComponent } from './components/quiz-question/show-multiple-choice-question/show-multiple-choice-question.component';
 import { ShowActionQuestionComponent } from './components/quiz-question/show-action-question/show-action-question.component';
+import { ShowYesNoQuestionComponent } from './components/quiz-question/show-yes-no-question/show-yes-no-question.component';
+import { CountdownTimerComponent } from './shared/components/coutdown-timer/countdown-timer.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ShowActionQuestionComponent } from './components/quiz-question/show-act
     QuizDetailComponent,
     QuizQuestionDetailComponent,
     ShowMultipleChoiceQuestionComponent,
-    ShowActionQuestionComponent
+    ShowActionQuestionComponent,
+    ShowYesNoQuestionComponent,
+    CountdownTimerComponent
   ],
   imports: [
     AppRoutingModule,

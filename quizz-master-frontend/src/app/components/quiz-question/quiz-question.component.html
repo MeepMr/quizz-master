@@ -1,14 +1,17 @@
 <div class="container">
   <div class="bg-light card">
-    <p class="card-header text-center fs-2">{{activeQuestion?.questionText}}</p>
+    <p class="card-header text-center fs-3">{{activeQuestion?.questionText}}</p>
     <div *ngIf="activeMultipleChoiceQuestion">
       <app-show-multiple-choice-question [activeMultipleChoiceQuestion]="activeMultipleChoiceQuestion"></app-show-multiple-choice-question>
     </div>
     <div *ngIf="activeActionQuestion">
       <app-show-action-question [activeActionQuestion]="activeActionQuestion"></app-show-action-question>
     </div>
+    <div *ngIf="activeYesNoQuestion">
+      <app-show-yes-no-question [activeYesNoQuestion]="activeYesNoQuestion"></app-show-yes-no-question>
+    </div>
     <div class="card-footer">
-      <a class="btn-toolbar btn-light btn align-items-center justify-content-center fs-4"
+      <a class=" btn-outline-secondary btn align-items-center justify-content-center fs-5 m-2"
          [routerLink]="['/quiz/0']">
         <i class="bi bi-arrow-left m-2"></i>
         Go back to the Quiz-Board
