@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShowActionQuestionComponent } from './show-action-question.component';
+import {CountdownTimerComponent} from "../../../shared/components/coutdown-timer/countdown-timer.component";
 
 describe('ShowActionQuestionComponent', () => {
   let component: ShowActionQuestionComponent;
@@ -8,7 +9,10 @@ describe('ShowActionQuestionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowActionQuestionComponent ]
+      declarations: [
+        ShowActionQuestionComponent,
+        CountdownTimerComponent
+      ]
     })
     .compileComponents();
   });
