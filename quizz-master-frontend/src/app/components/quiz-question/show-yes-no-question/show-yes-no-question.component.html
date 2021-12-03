@@ -4,9 +4,9 @@
     [ngClass]="{
       'btn-outline-success': !answered,
       'disabled': answered,
-      'btn-success': answered && answeredCorrectly && answer == true,
-      'btn-outline-secondary': answered && (!answeredCorrectly && answer == true) || (answeredCorrectly && answer == false),
-      'btn-secondary': answered && !answeredCorrectly && answer == false
+      'btn-success': answered && answeredCorrectly && answer === true,
+      'btn-outline-secondary': answered && (!answeredCorrectly && answer === true) || (answeredCorrectly && answer === false),
+      'btn-secondary': answered && !answeredCorrectly && answer === false
     }"
   >
     Yes, of course!
@@ -16,9 +16,9 @@
     [ngClass]="{
       'btn-outline-danger': !answered,
       'disabled': answered,
-      'btn-danger': answered && answeredCorrectly && answer == false,
-      'btn-outline-secondary': answered && (answeredCorrectly && answer == true) || (!answeredCorrectly && answer == false),
-      'btn-secondary': answered && !answeredCorrectly && answer == true
+      'btn-danger': answered && answeredCorrectly && answer === false,
+      'btn-outline-secondary': answered && (answeredCorrectly && answer === true) || (!answeredCorrectly && answer === false),
+      'btn-secondary': answered && !answeredCorrectly && answer === true
     }"
   >
     No, never ever!
