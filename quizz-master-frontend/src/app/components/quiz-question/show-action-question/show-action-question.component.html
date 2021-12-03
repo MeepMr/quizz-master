@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container fs-3">
-    Timer: 00:00
+    <app-countdown-timer [initialTime$]="initialTime$" (onTimeFunction)="timerOver()"></app-countdown-timer>
   </div>
   <div class="btn-group container m-1">
     <div class="btn"
@@ -12,7 +12,7 @@
     >
       Start Timer
     </div>
-    <div class="btn"
+    <div class="btn btn-outline-success"
       (click)="answerQuestion(true)"
       [ngClass]="{
         'disabled': !timeOver

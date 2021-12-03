@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ActionQuestion } from '../../../shared/model/question/action-question';
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-show-action-question',
@@ -14,10 +15,12 @@ export class ShowActionQuestionComponent {
   timerStarted: boolean = false;
   answeredCorrectly?: boolean;
 
+  initialTime$: BehaviorSubject<number> = new BehaviorSubject<number>(0)
+
   startTimer(): void {
 
     this.timerStarted = true;
-    setTimeout(() => this.timerOver() , this.activeActionQuestion.time * 1000)
+    this.initialTime$.next(this.activeActionQuestion.time)
   }
 
   timerOver(): void {
