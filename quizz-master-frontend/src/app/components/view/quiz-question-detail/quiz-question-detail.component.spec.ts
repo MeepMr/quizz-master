@@ -5,8 +5,8 @@ import { QuizQuestionComponent } from '../../quiz-question/quiz-question.compone
 import { ShowMultipleChoiceQuestionComponent } from '../../quiz-question/show-multiple-choice-question/show-multiple-choice-question.component';
 import { ShowActionQuestionComponent } from '../../quiz-question/show-action-question/show-action-question.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import {ShowYesNoQuestionComponent} from "../../quiz-question/show-yes-no-question/show-yes-no-question.component";
-import {CountdownTimerComponent} from "../../../shared/components/coutdown-timer/countdown-timer.component";
+import { ShowYesNoQuestionComponent } from '../../quiz-question/show-yes-no-question/show-yes-no-question.component';
+import { CountdownTimerComponent } from '../../../shared/components/coutdown-timer/countdown-timer.component';
 
 describe('QuizQuestionDetailComponent', () => {
   let component: QuizQuestionDetailComponent;
