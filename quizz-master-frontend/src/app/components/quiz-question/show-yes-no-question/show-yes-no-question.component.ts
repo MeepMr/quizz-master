@@ -17,7 +17,7 @@ export class ShowYesNoQuestionComponent {
   answerQuestion(answer: boolean): void {
     this.answeredQuestion();
     this.answer = answer;
-    this.answeredCorrectly = !answer === this.activeYesNoQuestion.correct;
+    this.answeredCorrectly = answer === this.activeYesNoQuestion.correct;
   }
 
   private answeredQuestion(): void {

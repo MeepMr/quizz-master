@@ -50,7 +50,7 @@ export class QUESTION_MOCK {
     this.question2_1 = new MultipleChoiceQuestion(this.question_id_counter++, 'Was verkünden die Engel den Hirten?', 20, ["Frieden auf Erden", "Freiheit für Palästina", "Krieg den Römern", "Freibier für alle"]);
     this.question2_2 = new MultipleChoiceQuestion(this.question_id_counter++, 'Als König Herodes bemerkt, dass die drei Weisen ihn betrogen haben, ist er sauer. Was tut er?', 40, ["Er befiehlt alle jüdischen Jungen unter zwei Jahren umzubringen", "Er schickt einen Suchtrupp los", "Er lässt alle Theater und Kneipen in Jerusalem schließen", "Er begibt sich in seinen Harem, um auf andere Gedanken zu kommen"]);
     this.question2_3 = new MultipleChoiceQuestion(this.question_id_counter++, 'Wovon erzählt die Weihnachtsgeschichte nichts?', 60, ["Tannenbaum", "Steuerlisten", "Engel", "Windeln"]);
-    this.question2_4 = new ActionQuestion(this.question_id_counter++, 'Pantomime. Einer aus der Gruppe muss einen Satz aus der Weihnachtsgeschichte ohne Worte darstellen: sie fanden keinen Platz in der Herberge.',  80, 120);
+    this.question2_4 = new ActionQuestion(this.question_id_counter++, 'Pantomime. Einer aus der Gruppe muss einen Satz aus der Weihnachtsgeschichte ohne Worte darstellen',  80, 120);
     this.question2_5 = new YesNoQuestion(this.question_id_counter++, 'Welche Tiere sind nach den biblischen Berichten bei der Geburt Jesu im Stall anwesend? Achtung! Gut überlegen - 100 Punkte!',  100);
 
     this.question3_1 = new MultipleChoiceQuestion(this.question_id_counter++, 'Woraus sind „Weihnachtspyramiden“ gemacht?', 20, ["Holz", "Stein", "Lebkuchen", "Kerzenwachs"]);
@@ -66,10 +66,10 @@ export class QUESTION_MOCK {
     this.question4_5 = new YesNoQuestion(this.question_id_counter++, 'Höchststrafe! Singen! Singt gemeinsam als Gruppe eine Strophe eines Weihnachtsliedes. (vollständig!)', 100);
 
     this.question5_1 = new MultipleChoiceQuestion(this.question_id_counter++, 'Ein Münchner Jugend-Forschungsinstitut befragte mehr als 700 deutsche Kinder im Alter von sechs bis zwölf Jahren nach dem Grund für das Weihnachtsfest. Wie viele kannten den Grund nicht?', 20, ["39 Prozent", "9 Prozent", "19 Prozent", "29 Prozent"]);
-    this.question5_2 = new MultipleChoiceQuestion(this.question_id_counter++, 'Was hat Frank sich zu Weihnachten gewünscht?', 40, ["CD", "Krawatte", "10er Karte Fitnessstudio", "Mussleshirt"]);
+    this.question5_2 = new MultipleChoiceQuestion(this.question_id_counter++, 'Was hat Frank sich zu Weihnachten gewünscht?', 40, ["AirPods", "Krawatte", "10er Karte Fitnessstudio", "Mussleshirt"]);
     this.question5_3 = new MultipleChoiceQuestion(this.question_id_counter++, 'Die „Weihnachtsinseln“ (Christmas Island) gibt es wirklich! Frage: wo finden wir sie?', 60, ["Indischer Ozean", "Ärmelkanal", "Mittelmeer", "Rotes Meer"]);
     this.question5_4 = new MultipleChoiceQuestion(this.question_id_counter++, 'Wann feiern die russischen Christen Weihnachten?', 80, ["6. Januar", "6. Dezember", "25. Dezember", "31. Dezember"]);
-    this.question5_5 = new MultipleChoiceQuestion(this.question_id_counter++, 'Was gibt’s bei Rahns Heiligabend zu essen?', 100, ["Raclette", "Gänsebraten", "Tofu auf Vollkornnudeln", "gefüllte Ente"]);
+    this.question5_5 = new MultipleChoiceQuestion(this.question_id_counter++, 'Was gibt’s bei Justin Heiligabend zu essen?', 100, ["Raclette", "Schweizer Braten", "Tofu auf Vollkornnudeln", "gefüllte Ente"]);
 
     this.allQuestions = [
       this.question1_1,
